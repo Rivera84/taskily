@@ -4,7 +4,8 @@
   "description": "Gestor de proyectos, tareas y asignaciones",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./index.js",
+    "start": "node ./index.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,15 @@
   },
   "homepage": "https://github.com/Rivera84/taskily#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.11",
+    "shortid": "^2.2.15",
+    "slug": "^3.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
