@@ -12,11 +12,17 @@ const bodyParser = require("body-parser");
 //Importar todas las rutas disponibles
 const routes = require('./routes');
 
+//Importar passport para permitir el inicio de sesion
+const passport = require("./config/passport");
+
+//importamos passport install --save passport passport-local
+
 //Crear la conexion con la base de datps
 const db = require("./config/db");
 
 //importar los modelos
 require("./models/Proyecto");
+require("./models/Usuario");
 
 //Realizar la concexion a la base de datos
 //Sequelize se conecta mediante promesas
@@ -37,6 +43,10 @@ app.set("view engine", "hbs");
 
 //Habilitar bodyParser para leer los datos enviados por POST
 app.use(bodyParser.urlencoded({extended:true}));
+
+//Crear una instancia de passport y cargar nuestra entrategia
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Indicarle a express donde estan las rutas del servidor
 app.use("/", routes());

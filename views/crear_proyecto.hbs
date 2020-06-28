@@ -1,18 +1,24 @@
 <h1>Creación de un nuevo proyecto</h1>
 
 {{!--Mostrar error en caso de que exista--}}
-{{#if errores}}
-{{#each errores}}
-  <div class="alert alert-danger" role="alert">
+{{#if mensajes}}
+{{#each mensajes}}
+  <div class="alert {{type}}" role="alert">
   {{error}}
   </div>
   {{/each}}
 {{/if}}
 
+<div class="container">
 <form method="POST" action="/nuevo_proyecto">
   <div class="form-group">
     <label for="nombre">Nombre del proyecto</label>
     <input type="text" class="form-control" id="nombre" name="nombre">
     </div>
+     <div class="form-group">
+    <label for="nombre">Descripción</label>
+    <input type="text" class="form-control" id="descripcion" name="descripcion">
+    </div>
   <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
+</div>

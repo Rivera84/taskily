@@ -17,6 +17,12 @@ const Proyecto = db.define("proyecto",{
     nombre: {
         type: Sequelize.STRING
     },
+    descripcion: {
+        type: Sequelize.STRING
+    },
+    fecha: {
+        type: Sequelize.DATE
+    },
     url:{
         type: Sequelize.STRING
     }
@@ -25,8 +31,10 @@ const Proyecto = db.define("proyecto",{
         beforeCreate(proyecto){
             console.log("antes de insertar en la base de datos");
             const url = slug(proyecto.nombre).toLowerCase();
+            const date = new Date();
             
             proyecto.url = `${url}_${shortid.generate()}`;
+            proyecto.fecha = date.toISOString();
         },
         beforeUpdate(proyecto){
             console.log("Antes de actualizar la base");
